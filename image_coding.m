@@ -1,9 +1,13 @@
-function y = image_coding(img_path, t)
-
+function y = image_coding(imgpath, thres)
 % Read image
-gray_image = imread(img_path);
-% imshow(gray_image);
-
+try
+    % If image is RGB
+    gray_image = rgb2gray(imread(imgpath));
+catch
+    % If image is already gray
+    gray_image = imread(imgpath);
+end
+    
 % Perform segmentation
 [width, height] = size(gray_image);
 loop = width/8;
@@ -17,7 +21,7 @@ else
     error('Width and height must be equal!');
 end
 
-threshold = t;
+threshold = thres;
 
 % Run dct2 algorithm on every blockB{}
 [width, height] = size(blocks);
@@ -39,4 +43,5 @@ figure('Name', 'Original Picture');
 imshow(gray_image);
 figure('Name', 'Compressed Picture');
 imshow(compressed, [0 255]);
+
 y = 1;
