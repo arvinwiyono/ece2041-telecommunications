@@ -61,4 +61,7 @@ imshow(gray_image);
 figure('Name', 'Compressed Picture');
 imshow(compressed, [0 255]);
 
+% Write compressed picture
+imwrite(compressed, gray, 'compressed.jpg');
+
 y = 1;
