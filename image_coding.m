@@ -38,6 +38,7 @@ blocks = mat2cell(gray_image, param, param);
 % Set threshold
 threshold = thres;
 
+tic;
 [width, height] = size(blocks);
 for i = 1:width
    for j = 1:height
@@ -54,6 +55,7 @@ for i = 1:width
 end
 
 compressed = cell2mat(blocks);
+toc; % Measure elapsed time to carry out compression
 
 % Display original and compressed pictures
 figure('Name', 'Original Picture');
