@@ -1,3 +1,8 @@
+% Parameters:
+% imgpath - path to image. E.g. 'Desktop\test.jpg'
+% thres - the quantization threshold. Any values within a block that are less than thres will be set to zero
+% block_size - dividing the picture into blocks of (block_size^2) pixels. The values are typically: 2, 4, 8, 16, 32, 64, etc.
+
 function y = image_coding(imgpath, thres, block_size)
 
 % Validate block size
